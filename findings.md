@@ -12,4 +12,3 @@
 3. `DB_HOST`: required and nonempty; `dbhost` is not an alias.
 4. `DB_PASSWORD`: required and nonempty; never display its value.
 
-Keep `messy.env` as the original negative fixture. `valid.env.example` is the repaired template with dummy values only.
