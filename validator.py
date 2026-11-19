@@ -1,5 +1,5 @@
-"""Student scaffold. Implement rules from Lab 2; never print secret values."""
 import sys
+
 
 def validate(values):
     errors = []
@@ -17,6 +17,7 @@ def validate(values):
             errors.append(f"{key} must be present and nonempty")
     return errors
 
+
 def load(path):
     values = {}
     for line in open(path, encoding="utf8"):
@@ -26,7 +27,11 @@ def load(path):
             values[key.strip()] = value.strip()
     return values
 
+
 if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python3 validator.py <config-file>", file=sys.stderr)
+        sys.exit(1)
     issues = validate(load(sys.argv[1]))
     print("\n".join(issues) if issues else "Configuration accepted")
     sys.exit(bool(issues))
